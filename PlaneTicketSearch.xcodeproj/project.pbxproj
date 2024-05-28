@@ -17,6 +17,11 @@
 		5ACEE3CA2C05E964005BAAD6 /* ButtonsViewSearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3C92C05E964005BAAD6 /* ButtonsViewSearchScene.swift */; };
 		5ACEE3CC2C05EE0A005BAAD6 /* PopularDestViewSearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3CB2C05EE0A005BAAD6 /* PopularDestViewSearchScene.swift */; };
 		5ACEE3CE2C05FB18005BAAD6 /* SearchViewSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3CD2C05FB18005BAAD6 /* SearchViewSearchScreen.swift */; };
+		5ACEE3D02C060812005BAAD6 /* FullSearchSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3CF2C060812005BAAD6 /* FullSearchSceneView.swift */; };
+		5ACEE3D22C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3D12C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift */; };
+		5ACEE3D42C06116B005BAAD6 /* HScrollViewFullSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3D32C06116B005BAAD6 /* HScrollViewFullSearchScreen.swift */; };
+		5ACEE3D62C061EA5005BAAD6 /* ShortFlightInfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3D52C061EA5005BAAD6 /* ShortFlightInfoTabView.swift */; };
+		5ACEE3D82C0626C4005BAAD6 /* SubscriptionOnPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3D72C0626C4005BAAD6 /* SubscriptionOnPriceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		5ACEE3C92C05E964005BAAD6 /* ButtonsViewSearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsViewSearchScene.swift; sourceTree = "<group>"; };
 		5ACEE3CB2C05EE0A005BAAD6 /* PopularDestViewSearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestViewSearchScene.swift; sourceTree = "<group>"; };
 		5ACEE3CD2C05FB18005BAAD6 /* SearchViewSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSearchScreen.swift; sourceTree = "<group>"; };
+		5ACEE3CF2C060812005BAAD6 /* FullSearchSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSearchSceneView.swift; sourceTree = "<group>"; };
+		5ACEE3D12C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewFullSearchScreen.swift; sourceTree = "<group>"; };
+		5ACEE3D32C06116B005BAAD6 /* HScrollViewFullSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HScrollViewFullSearchScreen.swift; sourceTree = "<group>"; };
+		5ACEE3D52C061EA5005BAAD6 /* ShortFlightInfoTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortFlightInfoTabView.swift; sourceTree = "<group>"; };
+		5ACEE3D72C0626C4005BAAD6 /* SubscriptionOnPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnPriceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 				5ACEE3B42C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift */,
 				5ACEE3B62C05CA9A005BAAD6 /* ContentView.swift */,
 				5ACEE3C72C05E8B4005BAAD6 /* SearchSceneView.swift */,
+				5ACEE3CF2C060812005BAAD6 /* FullSearchSceneView.swift */,
 				5ACEE3C22C05D2B5005BAAD6 /* Components */,
 				5ACEE3B82C05CA9D005BAAD6 /* Assets.xcassets */,
 				5ACEE3BA2C05CA9D005BAAD6 /* Preview Content */,
@@ -85,10 +96,14 @@
 			isa = PBXGroup;
 			children = (
 				5ACEE3C32C05D2F3005BAAD6 /* SearchViewMainScreen.swift */,
+				5ACEE3CD2C05FB18005BAAD6 /* SearchViewSearchScreen.swift */,
+				5ACEE3D12C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift */,
 				5ACEE3C52C05DCFA005BAAD6 /* HScrollViewMainScreen.swift */,
+				5ACEE3D32C06116B005BAAD6 /* HScrollViewFullSearchScreen.swift */,
 				5ACEE3C92C05E964005BAAD6 /* ButtonsViewSearchScene.swift */,
 				5ACEE3CB2C05EE0A005BAAD6 /* PopularDestViewSearchScene.swift */,
-				5ACEE3CD2C05FB18005BAAD6 /* SearchViewSearchScreen.swift */,
+				5ACEE3D52C061EA5005BAAD6 /* ShortFlightInfoTabView.swift */,
+				5ACEE3D72C0626C4005BAAD6 /* SubscriptionOnPriceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -164,12 +179,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ACEE3B72C05CA9A005BAAD6 /* ContentView.swift in Sources */,
+				5ACEE3D82C0626C4005BAAD6 /* SubscriptionOnPriceView.swift in Sources */,
 				5ACEE3C62C05DCFB005BAAD6 /* HScrollViewMainScreen.swift in Sources */,
 				5ACEE3C82C05E8B4005BAAD6 /* SearchSceneView.swift in Sources */,
+				5ACEE3D02C060812005BAAD6 /* FullSearchSceneView.swift in Sources */,
 				5ACEE3C42C05D2F3005BAAD6 /* SearchViewMainScreen.swift in Sources */,
 				5ACEE3CC2C05EE0A005BAAD6 /* PopularDestViewSearchScene.swift in Sources */,
 				5ACEE3B52C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift in Sources */,
 				5ACEE3CE2C05FB18005BAAD6 /* SearchViewSearchScreen.swift in Sources */,
+				5ACEE3D42C06116B005BAAD6 /* HScrollViewFullSearchScreen.swift in Sources */,
+				5ACEE3D62C061EA5005BAAD6 /* ShortFlightInfoTabView.swift in Sources */,
+				5ACEE3D22C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift in Sources */,
 				5ACEE3CA2C05E964005BAAD6 /* ButtonsViewSearchScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
