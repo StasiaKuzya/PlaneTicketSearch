@@ -16,28 +16,32 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationView {
-                VStack(spacing: 32) {
-                    Text("Поиск дешевых авиабилетов")
-                        .foregroundColor(.dWhite)
-                        .font(.system(size: 22, weight: .bold))
-                        .frame(width: 172)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                        .padding(.top, 26)
-
+                ZStack {
+                    Color.dBlack.ignoresSafeArea()
+                    VStack(spacing: 32) {
+                        Text("Поиск дешевых авиабилетов")
+                            .foregroundColor(.dWhite)
+                            .font(.system(size: 22, weight: .bold))
+                            .frame(width: 172)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .padding(.top, 26)
+                        
                         SearchViewMainScreen()
-                        .padding(16)
-                        .background(
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(Color(.dGrey4))
-                        )
-                    HScrollViewMainScreen()
-                    Spacer()
+                            .padding(16)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color(.dGrey2))
+                            )
+                        
+                        HScrollViewMainScreen()
+                        Spacer()
+                    }
                 }
                 .padding([.leading, .trailing], 16)
+                .background(.dBlack)
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
-                .background(.dBlack)
             }
             .onAppear {}
             .tabItem {

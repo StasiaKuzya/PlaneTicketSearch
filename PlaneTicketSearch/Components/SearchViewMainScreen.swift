@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SearchViewMainScreen: View {
+    @State private var showModalSearchScene = false
+    
     var body: some View {
         HStack(spacing: 17) {
             Image("lens")
@@ -22,18 +24,25 @@ struct SearchViewMainScreen: View {
                     .padding(.bottom, 8)
                 Divider()
                     .background(.dGrey7)
-                Text("Where - Turkey")
-                    .foregroundColor(.dWhite)
-                    .font(.system(size: 16))
-                    .padding(.top, 8)
-                    .padding(.bottom, 16)
+                Button {
+                    showModalSearchScene.toggle()
+                } label: {
+                    Text("Where - Turkey")
+                        .foregroundColor(.dWhite)
+                        .font(.system(size: 16))
+                        .padding(.top, 8)
+                        .padding(.bottom, 16)
+                }
             }
             .padding(.trailing, 16)
             .bold()
         }
-        .background(.dGrey5)
+        .background(.dGrey4)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dBlack, radius: 7, x: 0, y: 7)
+        .sheet(isPresented: $showModalSearchScene) {
+            SearchSceneView()
+        }
     }
 }
 
