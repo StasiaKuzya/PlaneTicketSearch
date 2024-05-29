@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchViewMainScreen: View {
+    @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
     @State private var showModalSearchScene = false
     
     var body: some View {
@@ -17,7 +18,8 @@ struct SearchViewMainScreen: View {
                 .foregroundColor(.dGrey7)
                 .padding(.leading, 8)
             VStack (alignment: .leading) {
-                Text("Minsk")
+                TextField("Откуда - Москва", text: $departurePlace)
+                    .onChange(of: departurePlace) {}
                     .foregroundColor(.dWhite)
                     .font(.system(size: 16))
                     .padding(.top, 16)
@@ -27,7 +29,7 @@ struct SearchViewMainScreen: View {
                 Button {
                     showModalSearchScene.toggle()
                 } label: {
-                    Text("Where - Turkey")
+                    Text("Куда - Турция")
                         .foregroundColor(.dGrey6)
                         .font(.system(size: 16))
                         .padding(.top, 8)
@@ -48,4 +50,13 @@ struct SearchViewMainScreen: View {
 
 #Preview {
     SearchViewMainScreen()
+}
+
+extension String {
+    var isCyrillic: Bool {
+        let cyrillic = CharacterSet(charactersIn:
+          "ЁёЙйЦцУуКкЕеНнГгШшЩщЗзХхЪъФфЫыВвАаПпРрОоЛлДдЖжЭэЯяЧчСсМмИиТтЬьБбЮю"
+        )
+        return self.rangeOfCharacter(from: cyrillic.inverted) == nil
+    }
 }

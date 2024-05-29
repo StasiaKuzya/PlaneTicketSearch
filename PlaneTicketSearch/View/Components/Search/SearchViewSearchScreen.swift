@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchViewSearchScreen: View {
+    @AppStorage("departurePlace") var departurePlace = "Москва"
     @State private var showFullSearchScene = false
     
     var body: some View {
@@ -17,9 +18,9 @@ struct SearchViewSearchScreen: View {
                     .renderingMode(.template)
                     .foregroundColor(.dGrey7)
                     .padding(.leading, 8)
-                Text("Minsk")
+                Text(departurePlace)
                     .foregroundColor(.dWhite)
-                    .font(.system(size: 16))
+                    .font(.system(size: 16, weight: .bold))
             }
             .padding(.top, 16)
             .padding(.bottom, 8)
@@ -34,7 +35,7 @@ struct SearchViewSearchScreen: View {
                         .renderingMode(.template)
                         .foregroundColor(.dGrey7)
                         .padding(.leading, 8)
-                    Text("Minsk")
+                    Text("Куда - Турция")
                         .foregroundColor(.dWhite)
                         .font(.system(size: 16))
                     Spacer()

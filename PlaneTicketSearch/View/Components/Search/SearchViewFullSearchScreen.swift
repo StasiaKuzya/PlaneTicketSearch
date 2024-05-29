@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct SearchViewFullSearchScreen: View {
+    @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
+    @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
+    
     var body: some View {
         HStack(spacing: 17) {
             Button {
@@ -21,7 +24,11 @@ struct SearchViewFullSearchScreen: View {
             }
             VStack (alignment: .leading) {
                 HStack {
-                    Text("Minsk")
+//                    Text("Minsk")
+                    TextField("Откуда - Москва", text: $departurePlace)
+                        .onChange(of: departurePlace) {
+                            departurePlace = $0.isEmpty ? "Москва" : $0
+                        }
                         .foregroundColor(.dWhite)
                         .font(.system(size: 16))
                     Spacer()
@@ -45,7 +52,8 @@ struct SearchViewFullSearchScreen: View {
                 Divider()
                     .background(.dGrey7)
                 HStack {
-                    Text("Where - Turkey")
+                    TextField("Куда - Турция", text: $arrivalPlace)
+                        .onChange(of: arrivalPlace) {}
                         .foregroundColor(.dWhite)
                         .font(.system(size: 16))
                     Spacer()

@@ -8,16 +8,35 @@
 import SwiftUI
 
 struct PopularDestViewSearchScene: View {
+    @AppStorage("arrivalPlace") var arrivalPlace = ""
+    @State private var showFullSearchScene = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            PopularDestView()
+            Button {
+                showFullSearchScene.toggle()
+                arrivalPlace = "Стамбул"
+            } label: {
+                PopularDestView(cityName: "Стамбул", cityAssetImage: "ist")
+            }
             Divider()
                 .background(.dGrey7)
-
-            PopularDestView()
+            
+            Button {
+                showFullSearchScene.toggle()
+                arrivalPlace = "Сочи"
+            } label: {
+                PopularDestView(cityName: "Сочи", cityAssetImage: "sochi")
+            }
             Divider()
                 .background(.dGrey7)
-            PopularDestView()
+            
+            Button {
+                showFullSearchScene.toggle()
+                arrivalPlace = "Пхукет"
+            } label: {
+                PopularDestView(cityName: "Пхукет", cityAssetImage: "phuket")
+            }
             Divider()
                 .background(.dGrey7)
                 .padding(.bottom, 16)
@@ -25,6 +44,9 @@ struct PopularDestViewSearchScene: View {
         .padding([.leading, .trailing], 16)
         .background(.dGrey4)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
+        .fullScreenCover(isPresented: $showFullSearchScene) {
+            FullSearchSceneView()
+        }
     }
 }
 
@@ -34,18 +56,21 @@ struct PopularDestViewSearchScene: View {
 
 
 struct PopularDestView: View {
+    var cityName: String
+    var cityAssetImage: String
+    
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
-            Image("placeholder")
+            Image("\(cityAssetImage)")
                 .resizable()
                 .frame(width: 40, height: 40)
                 .scaledToFill()
                 .cornerRadius(8)
             VStack (alignment: .leading, spacing: 4) {
-                Text("Minsk")
+                Text(cityName)
                     .foregroundColor(.dWhite)
                     .font(.system(size: 16, weight: .bold))
-                Text("Where - Turkey")
+                Text("Популярное направление")
                     .foregroundColor(.dGrey6)
                     .font(.system(size: 16))
                 

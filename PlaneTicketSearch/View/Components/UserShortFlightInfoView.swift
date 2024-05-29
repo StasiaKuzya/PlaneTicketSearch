@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct UserShortFlightInfoView: View {
+    @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
+    @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
+//    @EnvironmentObject var selectedDate: SelectedDate
     @State private var showModalSearchScene = false
     
     var body: some View {
@@ -20,10 +23,10 @@ struct UserShortFlightInfoView: View {
                     .foregroundColor(.dBlue)
             }
             VStack (alignment: .leading, spacing: 4) {
-                Text("Minsk - Sochi")
+                Text("\(departurePlace) - \(arrivalPlace)")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.dWhite)
-                Text("23 Feb, 1 passanger")
+                Text(dateFormat(date: Date()) + ", 1 пассажир")
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(.dGrey6)
             }
@@ -36,6 +39,13 @@ struct UserShortFlightInfoView: View {
         .sheet(isPresented: $showModalSearchScene) {
             SearchSceneView()
         }
+    }
+    
+    func dateFormat(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU")
+        formatter.dateFormat = "d MMM"
+        return formatter.string(from: date)
     }
 }
 
