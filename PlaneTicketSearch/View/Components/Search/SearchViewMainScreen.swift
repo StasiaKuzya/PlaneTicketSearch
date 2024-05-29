@@ -28,7 +28,7 @@ struct SearchViewMainScreen: View {
                     showModalSearchScene.toggle()
                 } label: {
                     Text("Where - Turkey")
-                        .foregroundColor(.dWhite)
+                        .foregroundColor(.dGrey6)
                         .font(.system(size: 16))
                         .padding(.top, 8)
                         .padding(.bottom, 16)

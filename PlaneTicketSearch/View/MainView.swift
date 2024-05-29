@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var mainViewModel = MainViewModel()
     
     init() {
         UITabBar.appearance().unselectedItemTintColor = .dGrey6
@@ -39,8 +40,8 @@ struct MainView: View {
                                 .foregroundStyle(.dWhite)
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 67) {
-                                    ForEach(1...10, id: \.self) { num in
-                                        MusicEventInfoView()
+                                    ForEach(mainViewModel.musicEvents, id: \.id) { event in
+                                        MusicEventInfoView(event: event)
                                     }
                                 }
                             }
@@ -55,7 +56,7 @@ struct MainView: View {
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .onAppear {}
+            .onAppear { mainViewModel.fetchPosts()}
             .tabItem {
                 Image("plane")
                     .renderingMode(.template)
