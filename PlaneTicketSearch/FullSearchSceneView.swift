@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct FullSearchSceneView: View {
+    @State private var showAllTicketInfoScene = false
+    
     var body: some View {
         ZStack {
             Color.dBlack.ignoresSafeArea()
             VStack(spacing: 15) {
                 SearchViewFullSearchScreen()
-                HScrollViewFullSearchScreen()
+                FiltersView()
                 ShortFlightInfoTabView()
                 Button {
-                  //TODO: segue on allTicketsScene
+                    showAllTicketInfoScene.toggle()
                 } label: {
                     Text("Посмотреть все билеты")
                         .font(.system(size: 16))
@@ -36,6 +38,9 @@ struct FullSearchSceneView: View {
             }
             .padding([.leading, .trailing], 16)
             .padding(.top, 47)
+        }
+        .fullScreenCover(isPresented: $showAllTicketInfoScene) {
+            AllTicketInfoView()
         }
     }
 }

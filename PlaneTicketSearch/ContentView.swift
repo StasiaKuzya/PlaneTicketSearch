@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     
     init() {
         UITabBar.appearance().unselectedItemTintColor = .dGrey6
@@ -33,8 +33,20 @@ struct ContentView: View {
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(Color(.dGrey2))
                             )
+                        VStack (alignment: .leading, spacing: 26) {
+                            Text("Музыкально отлететь")
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundStyle(.dWhite)
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 67) {
+                                    ForEach(1...10, id: \.self) { num in
+                                        MusicEventInfoView()
+                                    }
+                                }
+                            }
+                            .frame(height: 214)
+                        }
                         
-                        HScrollViewMainScreen()
                         Spacer()
                     }
                 }
@@ -79,5 +91,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }

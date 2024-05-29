@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HScrollViewFullSearchScreen: View {
+struct FiltersView: View {
     @State private var selectedDate = Date()
     @State private var showDatePicker = false
     
@@ -94,5 +94,5 @@ struct HScrollViewFullSearchScreen: View {
 }
 
 #Preview {
-    HScrollViewFullSearchScreen()
+    FiltersView()
 }

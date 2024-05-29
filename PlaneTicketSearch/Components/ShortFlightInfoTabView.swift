@@ -63,7 +63,6 @@ struct ShortFlightInfoView: View {
             .font(.system(size: 14))
         }
         .padding(.top, 8)
-//        .padding(.bottom, 10)
         .background(.dGrey2)
         Divider()
             .background(.dGrey7)
