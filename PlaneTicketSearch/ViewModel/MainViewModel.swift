@@ -11,10 +11,10 @@ class MainViewModel: ObservableObject {
     
     private var networkService = NetworkService()
     
-    func fetchPosts() {
+    func fetchData() {
         guard let url = URL(string: Constants.baseMainURL) else { return }
 
-        networkService.request(url: url) { [weak self] result in
+        networkService.request(url: url) { [weak self] (result: Result<MainModel, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let mainModel):

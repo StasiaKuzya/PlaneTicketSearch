@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct ShortFlightInfoTabView: View {
+    @State private var showAllTicketInfoScene = false
+    var ticketsOffers: [TicketsOffer]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Прямые рейсы")
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.dWhite)
                 .padding(.top, 16)
-            ShortFlightInfoView()
-            ShortFlightInfoView()
-            ShortFlightInfoView()
+            
+            ForEach(ticketsOffers.prefix(3), id: \.id) { ticketsOffer in
+                ShortFlightInfoView(ticketsOffer: ticketsOffer)
+            }
             Button {
-                
+                showAllTicketInfoScene.toggle()
             } label: {
                 Text("Показать все")
                     .font(.system(size: 16))
@@ -31,32 +35,40 @@ struct ShortFlightInfoTabView: View {
         .padding([.leading, .trailing], 16)
         .background(.dGrey2)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
+        .fullScreenCover(isPresented: $showAllTicketInfoScene) {
+            AllTicketInfoView()
+        }
     }
 }
 
 #Preview {
-    ShortFlightInfoTabView()
+    ShortFlightInfoTabView(ticketsOffers: [TicketsOffer(id: 1,
+                                                      title: "Belavia",
+                                                      timeRange: ["07:00", "09:00"],
+                                                      price: Price(value: 2350))])
 }
 
 struct ShortFlightInfoView: View {
+    var ticketsOffer: TicketsOffer
+    
     var body: some View {
         HStack(alignment: .top, spacing: 14) {
             Circle()
                 .fill(.dBlue)
-                .frame(width: 24)
+                .frame(width: 24, height: 24)
             VStack (alignment: .leading, spacing: 4) {
                 HStack {
-                    Text("Belavia")
+                    Text(ticketsOffer.title)
                         .italic()
                     Spacer()
-                    Text("2 340 ₽")
+                    Text("\(ticketsOffer.price.value) ₽")
                         .italic()
                         .foregroundColor(.dBlue)
                     Image(systemName: "chevron.right")
                         .renderingMode(.template)
                         .foregroundColor(.dBlue)
                 }
-                Text("07:00 07:00 07:00 07:00 07:00 07:00 07:00 07:00 07:00")
+                Text(ticketsOffer.timeRange.joined(separator: ", "))
                     .lineLimit(1)
             }
             .foregroundColor(.dWhite)

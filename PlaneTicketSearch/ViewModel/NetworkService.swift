@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkService {
-    func request(url: URL, completion: @escaping (Result<MainModel, Error>) -> Void) {
+    func request<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
@@ -17,7 +17,7 @@ class NetworkService {
                 }
                 if let data = data {
                     do {
-                        let decodedData = try JSONDecoder().decode(MainModel.self, from: data)
+                        let decodedData = try JSONDecoder().decode(T.self, from: data)
                         completion(.success(decodedData))
                     } catch let error {
                         completion(.failure(error))

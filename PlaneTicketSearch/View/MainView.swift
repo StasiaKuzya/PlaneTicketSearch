@@ -56,7 +56,7 @@ struct MainView: View {
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .onAppear { mainViewModel.fetchPosts()}
+            .onAppear { mainViewModel.fetchData()}
             .tabItem {
                 Image("plane")
                     .renderingMode(.template)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FullSearchSceneView: View {
+    @StateObject var searchViewModel = SearchViewModel()
     @State private var showAllTicketInfoScene = false
     
     var body: some View {
@@ -16,7 +17,7 @@ struct FullSearchSceneView: View {
             VStack(spacing: 15) {
                 SearchViewFullSearchScreen()
                 FiltersView()
-                ShortFlightInfoTabView()
+                ShortFlightInfoTabView(ticketsOffers: searchViewModel.ticketsOffers)
                 Button {
                     showAllTicketInfoScene.toggle()
                 } label: {
@@ -39,6 +40,7 @@ struct FullSearchSceneView: View {
             .padding([.leading, .trailing], 16)
             .padding(.top, 47)
         }
+        .onAppear{ searchViewModel.fetchData() }
         .fullScreenCover(isPresented: $showAllTicketInfoScene) {
             AllTicketInfoView()
         }

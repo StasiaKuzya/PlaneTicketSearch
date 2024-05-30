@@ -25,7 +25,7 @@ struct SubscriptionOnPriceView: View {
         .padding(.trailing, 11)
         .background(
             RoundedRectangle(cornerRadius: 8)
-                .fill(.dGrey4)
+                .fill(.dGrey2)
         )
     }
 }

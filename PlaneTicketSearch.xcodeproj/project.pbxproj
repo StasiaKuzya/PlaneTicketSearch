@@ -32,6 +32,7 @@
 		5ACEE3ED2C0722B4005BAAD6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3EC2C0722B4005BAAD6 /* NetworkService.swift */; };
 		5ACEE3EF2C072302005BAAD6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3EE2C072302005BAAD6 /* MainViewModel.swift */; };
 		5ACEE3F22C075BB9005BAAD6 /* EmptySceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3F12C075BB9005BAAD6 /* EmptySceneView.swift */; };
+		5ACEE3F42C087CDF005BAAD6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3F32C087CDF005BAAD6 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		5ACEE3EC2C0722B4005BAAD6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5ACEE3EE2C072302005BAAD6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5ACEE3F12C075BB9005BAAD6 /* EmptySceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySceneView.swift; sourceTree = "<group>"; };
+		5ACEE3F32C087CDF005BAAD6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				5ACEE3EA2C071F56005BAAD6 /* Constants.swift */,
 				5ACEE3EC2C0722B4005BAAD6 /* NetworkService.swift */,
 				5ACEE3EE2C072302005BAAD6 /* MainViewModel.swift */,
+				5ACEE3F32C087CDF005BAAD6 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				5ACEE3CE2C05FB18005BAAD6 /* SearchViewSearchScreen.swift in Sources */,
 				5ACEE3D42C06116B005BAAD6 /* FiltersView.swift in Sources */,
 				5ACEE3EB2C071F56005BAAD6 /* Constants.swift in Sources */,
+				5ACEE3F42C087CDF005BAAD6 /* SearchViewModel.swift in Sources */,
 				5ACEE3D62C061EA5005BAAD6 /* ShortFlightInfoTabView.swift in Sources */,
 				5ACEE3D22C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift in Sources */,
 				5ACEE3E92C071C6D005BAAD6 /* AllTicketsModel.swift in Sources */,
