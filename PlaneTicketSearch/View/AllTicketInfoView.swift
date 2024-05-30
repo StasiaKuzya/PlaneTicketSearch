@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AllTicketInfoView: View {
+    @StateObject var allTicketsViewModel = AllTicketsViewModel()
+    
     var body: some View {
         ZStack {
             Color.dBlack.ignoresSafeArea()
@@ -17,8 +19,8 @@ struct AllTicketInfoView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 16) {
-                        ForEach(1...10, id: \.self) { num in
-                            ShortTicketInfoView()
+                        ForEach(allTicketsViewModel.shortTicketInfo, id: \.id) { shortTicketInfo in
+                            ShortTicketInfoView(shortTicketInfo: shortTicketInfo)
                         }
                     }
                 }
@@ -26,6 +28,7 @@ struct AllTicketInfoView: View {
                 Spacer()
             }
             .padding([.leading, .trailing], 16)
+            .onAppear{ allTicketsViewModel.fetchData() }
         }
     }
 }
