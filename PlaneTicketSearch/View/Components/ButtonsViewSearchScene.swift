@@ -12,6 +12,7 @@ struct ButtonsViewSearchScene: View {
     @State private var showWhereGoScene = false
     @State private var showWeekendScene = false
     @State private var showHotTourScene = false
+    @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
     
     var body: some View {
         HStack(alignment: .top) {
@@ -36,6 +37,7 @@ struct ButtonsViewSearchScene: View {
             }
             Spacer()
             Button {
+                arrivalPlace = "Куда угодно"
                 showWhereGoScene.toggle()
             } label: {
                 VStack (spacing: 8) {
@@ -97,6 +99,19 @@ struct ButtonsViewSearchScene: View {
         }
         .frame(maxWidth: .infinity)
         .background(.dGrey1)
+        .fullScreenCover(isPresented: $showDifficultRoutScene) {
+            EmptySceneView()
+        }
+        .fullScreenCover(isPresented: $showWhereGoScene) {
+            FullSearchSceneView()
+        }
+        .fullScreenCover(isPresented: $showWeekendScene) {
+            EmptySceneView()
+        }
+        .fullScreenCover(isPresented: $showHotTourScene) {
+            EmptySceneView()
+        }
+        
     }
 }
 

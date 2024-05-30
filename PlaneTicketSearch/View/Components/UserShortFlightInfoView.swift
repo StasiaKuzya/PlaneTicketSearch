@@ -10,13 +10,12 @@ import SwiftUI
 struct UserShortFlightInfoView: View {
     @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
     @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
-//    @EnvironmentObject var selectedDate: SelectedDate
-    @State private var showModalSearchScene = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             Button {
-                //TODO: dismiss segue
+                self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image("backArrow")
                     .renderingMode(.template)
@@ -36,9 +35,6 @@ struct UserShortFlightInfoView: View {
         .frame(maxWidth: .infinity)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .background(.dGrey2)
-        .sheet(isPresented: $showModalSearchScene) {
-            SearchSceneView()
-        }
     }
     
     func dateFormat(date: Date) -> String {

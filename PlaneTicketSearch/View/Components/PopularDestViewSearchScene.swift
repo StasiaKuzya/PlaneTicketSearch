@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopularDestViewSearchScene: View {
-    @AppStorage("arrivalPlace") var arrivalPlace = ""
+    @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
     @State private var showFullSearchScene = false
     
     var body: some View {

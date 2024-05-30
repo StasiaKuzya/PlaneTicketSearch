@@ -11,11 +11,12 @@ import SwiftUI
 struct SearchViewFullSearchScreen: View {
     @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
     @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         HStack(spacing: 17) {
             Button {
-                
+                self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image("backArrow")
                     .renderingMode(.template)
@@ -24,7 +25,6 @@ struct SearchViewFullSearchScreen: View {
             }
             VStack (alignment: .leading) {
                 HStack {
-//                    Text("Minsk")
                     TextField("Откуда - Москва", text: $departurePlace)
                         .onChange(of: departurePlace) {
                             departurePlace = $0.isEmpty ? "Москва" : $0
@@ -33,7 +33,9 @@ struct SearchViewFullSearchScreen: View {
                         .font(.system(size: 16))
                     Spacer()
                     Button {
-                        // TODO: dismiss
+                        let x = departurePlace
+                        departurePlace = arrivalPlace
+                        arrivalPlace = x
                     } label: {
                         ZStack {
                             Rectangle()
@@ -59,6 +61,7 @@ struct SearchViewFullSearchScreen: View {
                     Spacer()
                     Button {
                         // TODO: dismiss
+                        arrivalPlace = ""
                     } label: {
                         ZStack {
                             Rectangle()
