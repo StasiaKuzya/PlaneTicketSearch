@@ -9,28 +9,44 @@ import SwiftUI
 
 struct FiltersView: View {
     @State private var selectedDate = Date()
-    @State private var showDatePicker = false
+    @State private var returnDate = Date()
+    @State private var showDepartDatePicker = false
+    @State private var showReturnDatePicker = false
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 8) {
                 Button {
-                    //TODO:
+                    showReturnDatePicker.toggle()
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "plus")
                             .renderingMode(.template)
                             .foregroundStyle(.dWhite)
-                        Text("обратно")
+                        
+                        let calendar = Calendar.current
+                        let departureDate = calendar.startOfDay(for: selectedDate)
+                        let returningDate = calendar.startOfDay(for: returnDate)
+                        if returningDate > departureDate {
+                            Text(dateFormat(date: returnDate))
+                        } else {
+                            Text("обратно")
+                        }
                     }
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 10)
                     .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
+                .popover(isPresented: $showReturnDatePicker) {
+                    DatePicker("", selection: $returnDate, in: selectedDate..., displayedComponents: .date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .labelsHidden()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
                                 
                 Button {
-                    showDatePicker.toggle()
+                    showDepartDatePicker.toggle()
                 } label: {
                     Text(dateFormat(date: selectedDate))
                         .padding([.top, .bottom], 8)
@@ -38,8 +54,8 @@ struct FiltersView: View {
                         .background(.dGrey3)
                         .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
-                .popover(isPresented: $showDatePicker) {
-                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                .popover(isPresented: $showDepartDatePicker) {
+                    DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
