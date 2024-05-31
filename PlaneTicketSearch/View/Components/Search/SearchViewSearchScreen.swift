@@ -16,10 +16,10 @@ struct SearchViewSearchScreen: View {
             HStack(spacing: 8) {
                 Image("plane2")
                     .renderingMode(.template)
-                    .foregroundColor(.dGrey7)
+                    .foregroundStyle(.dGrey7)
                     .padding(.leading, 8)
                 Text(departurePlace)
-                    .foregroundColor(.dWhite)
+                    .foregroundStyle(.dWhite)
                     .font(.system(size: 16, weight: .bold))
             }
             .padding(.top, 16)
@@ -33,11 +33,11 @@ struct SearchViewSearchScreen: View {
                 HStack(spacing: 8) {
                     Image("lens")
                         .renderingMode(.template)
-                        .foregroundColor(.dGrey7)
+                        .foregroundStyle(.dWhite)
                         .padding(.leading, 8)
                     Text("Куда - Турция")
-                        .foregroundColor(.dWhite)
-                        .font(.system(size: 16))
+                        .foregroundStyle(.dGrey6)
+                        .font(.system(size: 16, weight: .bold))
                     Spacer()
                     Button {
                         // TODO: dismiss
@@ -45,10 +45,10 @@ struct SearchViewSearchScreen: View {
                         ZStack {
                             Rectangle()
                                 .frame(width: 24, height: 24)
-                                .foregroundColor(.dGrey4)
+                                .foregroundStyle(.dGrey3)
                             Image(systemName: "xmark")
                                 .resizable()
-                                .foregroundColor(.dGrey7)
+                                .foregroundStyle(.dGrey7)
                                 .frame(width: 9, height: 9)
                                 .bold()
                         }
@@ -59,7 +59,7 @@ struct SearchViewSearchScreen: View {
             }
         }
         .padding([.leading, .trailing], 16)
-        .background(.dGrey4)
+        .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dBlack, radius: 7, x: 0, y: 7)
         .fullScreenCover(isPresented: $showFullSearchScene) {

@@ -15,11 +15,12 @@ struct ShortFlightInfoTabView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Прямые рейсы")
                 .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.dWhite)
+                .foregroundStyle(.dWhite)
                 .padding(.top, 16)
             
-            ForEach(ticketsOffers.prefix(3), id: \.id) { ticketsOffer in
-                ShortFlightInfoView(ticketsOffer: ticketsOffer)
+            ForEach(ticketsOffers.prefix(3).indices, id: \.self) { index in
+                let color = getColorForIndex(index: index)
+                ShortFlightInfoView(ticketsOffer: ticketsOffers[index], circleColor: color)
             }
             Button {
                 showAllTicketInfoScene.toggle()
@@ -39,6 +40,19 @@ struct ShortFlightInfoTabView: View {
             AllTicketInfoView()
         }
     }
+    
+    private func getColorForIndex(index: Int) -> Color {
+        switch index {
+        case 0:
+            return .dRed
+        case 1:
+            return .dBlue
+        case 2:
+            return .dWhite
+        default:
+            return .dRed
+        }
+    }
 }
 
 #Preview {
@@ -50,11 +64,12 @@ struct ShortFlightInfoTabView: View {
 
 struct ShortFlightInfoView: View {
     var ticketsOffer: TicketsOffer
+    var circleColor: Color
     
     var body: some View {
         HStack(alignment: .top, spacing: 14) {
             Circle()
-                .fill(.dBlue)
+                .fill(circleColor)
                 .frame(width: 24, height: 24)
             VStack (alignment: .leading, spacing: 4) {
                 HStack {
@@ -63,15 +78,15 @@ struct ShortFlightInfoView: View {
                     Spacer()
                     Text("\(ticketsOffer.price.value) ₽")
                         .italic()
-                        .foregroundColor(.dBlue)
+                        .foregroundStyle(.dBlue)
                     Image(systemName: "chevron.right")
                         .renderingMode(.template)
-                        .foregroundColor(.dBlue)
+                        .foregroundStyle(.dBlue)
                 }
                 Text(ticketsOffer.timeRange.joined(separator: ", "))
                     .lineLimit(1)
             }
-            .foregroundColor(.dWhite)
+            .foregroundStyle(.dWhite)
             .font(.system(size: 14))
         }
         .padding(.top, 8)

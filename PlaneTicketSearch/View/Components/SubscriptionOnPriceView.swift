@@ -13,10 +13,10 @@ struct SubscriptionOnPriceView: View {
         HStack {
             Image("subscription")
                 .renderingMode(.template)
-                .foregroundColor(.dBlue)
+                .foregroundStyle(.dBlue)
             
             Text("Подписка на цену")
-                .foregroundColor(.dWhite)
+                .foregroundStyle(.dWhite)
             Toggle(isOn: $subscriptionToggle) {}
                 .tint(.dBlue)
         }

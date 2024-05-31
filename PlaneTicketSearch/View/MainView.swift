@@ -21,7 +21,7 @@ struct MainView: View {
                     Color.dBlack.ignoresSafeArea()
                     VStack(spacing: 32) {
                         Text("Поиск дешевых авиабилетов")
-                            .foregroundColor(.dWhite)
+                            .foregroundStyle(.dWhite)
                             .font(.system(size: 22, weight: .bold))
                             .frame(width: 172)
                             .multilineTextAlignment(.center)
@@ -32,7 +32,7 @@ struct MainView: View {
                             .padding(16)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
-                                    .fill(Color(.dGrey2))
+                                    .fill(Color(.dGrey3))
                             )
                         VStack (alignment: .leading, spacing: 26) {
                             Text("Музыкально отлететь")
@@ -62,32 +62,32 @@ struct MainView: View {
                     .renderingMode(.template)
                 Text("Авиабилеты")
             }
-            Text("")
+            Text("Отели")
                 .tabItem {
                     Image("hotels")
                         .renderingMode(.template)
                     Text("Отели")
                 }
-            Text("")
+            Text("Короче")
                 .tabItem {
                     Image("location")
                         .renderingMode(.template)
                     Text("Короче")
                 }
-            Text("")
+            Text("Подписки")
                 .tabItem {
                     Image("subscription")
                         .renderingMode(.template)
                     Text("Подписки")
                 }
-            Text("")
+            Text("Профиль")
                 .tabItem {
                     Image("profile")
                         .renderingMode(.template)
                     Text("Профиль")
                 }
         }
-        .accentColor(.dDarkBlue)
+        .accentColor(.dBlue)
     }
 }
 

@@ -12,54 +12,68 @@ struct ShortTicketInfoView: View {
     var shortTicketInfo: ShortTicketInfo
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("\(shortTicketInfo.price.value) ₽")
-                .foregroundStyle(.dWhite)
-                .font(.system(size: 22, weight: .bold))
-            
-            HStack(spacing: 7) {
-                Circle()
-                    .fill(.dRed)
-                    .frame(width: 24)
+        ZStack(alignment: .topLeading) {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("\(shortTicketInfo.price.value) ₽")
+                    .foregroundStyle(.dWhite)
+                    .font(.system(size: 22, weight: .bold))
                 
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(extractTime(from: shortTicketInfo.departure.date) ?? "")
-                            .foregroundStyle(.dWhite)
-                        Text(shortTicketInfo.departure.airport.rawValue)
+                HStack(spacing: 7) {
+                    Circle()
+                        .fill(.dRed)
+                        .frame(width: 24)
+                    
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(extractTime(from: shortTicketInfo.departure.date) ?? "")
+                                .foregroundStyle(.dWhite)
+                            Text(shortTicketInfo.departure.airport.rawValue)
+                                .foregroundStyle(.dGrey6)
+                        }
+                        .italic()
+                        .frame(width: 40)
+                        
+                        Text("-")
                             .foregroundStyle(.dGrey6)
-                    }
-                    .italic()
-                    .frame(width: 40)
-                    
-                    Text("-")
-                        .foregroundStyle(.dGrey6)
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(extractTime(from:shortTicketInfo.arrival.date) ?? "")
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(extractTime(from:shortTicketInfo.arrival.date) ?? "")
+                                .foregroundStyle(.dWhite)
+                            Text(shortTicketInfo.arrival.airport.rawValue)
+                                .foregroundStyle(.dGrey6)
+                        }
+                        .italic()
+                        .frame(width: 40)
+                        
+                        Spacer()
+                        Text("\(calculateDuration())ч в пути / \(shortTicketInfo.hasTransfer  == false ? "Без пересадок" : "С пересадками")")
                             .foregroundStyle(.dWhite)
-                        Text(shortTicketInfo.arrival.airport.rawValue)
-                            .foregroundStyle(.dGrey6)
+                            .lineLimit(1)
+                            .padding(.leading, 16)
                     }
-                    .italic()
-                    .frame(width: 40)
-                    
-                    Spacer()
-                    Text("\(calculateDuration())ч в пути / \(shortTicketInfo.hasTransfer  == false ? "Без пересадок" : "С пересадками")")
-                        .foregroundStyle(.dWhite)
-                        .lineLimit(1)
-                        .padding(.leading, 16)
+                    .font(.system(size: 14))
                 }
-                .font(.system(size: 14))
+            }
+            .padding([.top, .leading], 16)
+            .padding(.bottom, 23)
+            .padding(.trailing, 4)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color(.dGrey2))
+            )
+            if ((shortTicketInfo.badge?.isEmpty) == nil) {}
+            else {
+                Text(shortTicketInfo.badge ?? "Рекомендуемый")
+                    .padding([.top, .bottom], 2)
+                    .padding([.leading, .trailing], 10)
+                    .background(RoundedRectangle(cornerRadius: 50)
+                        .fill(.dBlue))
+                    .foregroundStyle(.dWhite)
+                    .font(.system(size: 14))
+                    .italic()
+                    .offset(x: 0, y: -9)
             }
         }
-        .padding([.top, .leading], 16)
-        .padding(.bottom, 23)
-        .padding(.trailing, 4)
-        .background(
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color(.dGrey2))
-        )
     }
     
     private func extractTime(from isoDateString: String) -> String? {

@@ -15,12 +15,12 @@ struct SearchViewMainScreen: View {
         HStack(spacing: 17) {
             Image("lens")
                 .renderingMode(.template)
-                .foregroundColor(.dGrey7)
+                .foregroundStyle(.dGrey7)
                 .padding(.leading, 8)
             VStack (alignment: .leading) {
                 TextField("Откуда - Москва", text: $departurePlace)
                     .onChange(of: departurePlace) {}
-                    .foregroundColor(.dWhite)
+                    .foregroundStyle(.dWhite)
                     .font(.system(size: 16))
                     .padding(.top, 16)
                     .padding(.bottom, 8)
@@ -30,7 +30,7 @@ struct SearchViewMainScreen: View {
                     showModalSearchScene.toggle()
                 } label: {
                     Text("Куда - Турция")
-                        .foregroundColor(.dGrey6)
+                        .foregroundStyle(.dGrey6)
                         .font(.system(size: 16))
                         .padding(.top, 8)
                         .padding(.bottom, 16)
@@ -41,7 +41,7 @@ struct SearchViewMainScreen: View {
         }
         .background(.dGrey4)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
-        .shadow(color: .dBlack, radius: 7, x: 0, y: 7)
+        .shadow(color: .dGrey2, radius: 7, x: 0, y: 7)
         .sheet(isPresented: $showModalSearchScene) {
             SearchSceneView()
         }

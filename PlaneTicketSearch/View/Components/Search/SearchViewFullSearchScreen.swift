@@ -20,7 +20,7 @@ struct SearchViewFullSearchScreen: View {
             } label: {
                 Image("backArrow")
                     .renderingMode(.template)
-                    .foregroundColor(.dGrey7)
+                    .foregroundStyle(.dWhite)
                     .padding(.leading, 8)
             }
             VStack (alignment: .leading) {
@@ -29,7 +29,7 @@ struct SearchViewFullSearchScreen: View {
                         .onChange(of: departurePlace) {
                             departurePlace = $0.isEmpty ? "Москва" : $0
                         }
-                        .foregroundColor(.dWhite)
+                        .foregroundStyle(.dWhite)
                         .font(.system(size: 16))
                     Spacer()
                     Button {
@@ -40,10 +40,10 @@ struct SearchViewFullSearchScreen: View {
                         ZStack {
                             Rectangle()
                                 .frame(width: 24, height: 24)
-                                .foregroundColor(.dGrey4)
+                                .foregroundStyle(.dGrey3)
                             Image("swap")
                                 .resizable()
-                                .foregroundColor(.dGrey7)
+                                .foregroundStyle(.dWhite)
                                 .frame(width: 12, height: 12)
                                 .bold()
                         }
@@ -56,7 +56,7 @@ struct SearchViewFullSearchScreen: View {
                 HStack {
                     TextField("Куда - Турция", text: $arrivalPlace)
                         .onChange(of: arrivalPlace) {}
-                        .foregroundColor(.dWhite)
+                        .foregroundStyle(.dWhite)
                         .font(.system(size: 16))
                     Spacer()
                     Button {
@@ -66,10 +66,10 @@ struct SearchViewFullSearchScreen: View {
                         ZStack {
                             Rectangle()
                                 .frame(width: 24, height: 24)
-                                .foregroundColor(.dGrey4)
+                                .foregroundStyle(.dGrey3)
                             Image(systemName: "xmark")
                                 .resizable()
-                                .foregroundColor(.dGrey7)
+                                .foregroundStyle(.dGrey7)
                                 .frame(width: 9, height: 9)
                                 .bold()
                         }
@@ -81,7 +81,7 @@ struct SearchViewFullSearchScreen: View {
             .padding(.trailing, 16)
             .bold()
         }
-        .background(.dGrey4)
+        .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dBlack, radius: 7, x: 0, y: 7)
     }

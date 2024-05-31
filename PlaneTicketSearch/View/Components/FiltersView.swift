@@ -20,12 +20,12 @@ struct FiltersView: View {
                     HStack(spacing: 8) {
                         Image(systemName: "plus")
                             .renderingMode(.template)
-                            .foregroundColor(.dWhite)
+                            .foregroundStyle(.dWhite)
                         Text("обратно")
                     }
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 10)
-                    .background(.dGrey4)
+                    .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
                                 
@@ -35,7 +35,7 @@ struct FiltersView: View {
                     Text(dateFormat(date: selectedDate))
                         .padding([.top, .bottom], 8)
                         .padding([.leading, .trailing], 10)
-                        .background(.dGrey4)
+                        .background(.dGrey3)
                         .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
                 .popover(isPresented: $showDatePicker) {
@@ -52,13 +52,13 @@ struct FiltersView: View {
                         Image("profile")
                             .resizable()
                             .renderingMode(.template)
-                            .foregroundColor(.dWhite)
+                            .foregroundStyle(.dWhite)
                             .frame(width: 16, height: 16)
                         Text("1, эконом")
                     }
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 10)
-                    .background(.dGrey4)
+                    .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
                 
@@ -68,12 +68,12 @@ struct FiltersView: View {
                     HStack(spacing: 8) {
                         Image("filters")
                             .renderingMode(.template)
-                            .foregroundColor(.dWhite)
+                            .foregroundStyle(.dWhite)
                         Text("фильтры")
                     }
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 10)
-                    .background(.dGrey4)
+                    .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
             }
@@ -82,7 +82,7 @@ struct FiltersView: View {
             .frame(height: 33)
         }
         .background(.dBlack)
-        .foregroundColor(.dWhite)
+        .foregroundStyle(.dWhite)
     }
     
     func dateFormat(date: Date) -> String {

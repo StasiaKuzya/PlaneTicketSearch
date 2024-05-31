@@ -25,13 +25,13 @@ struct MusicEventInfoView: View {
             HStack(spacing: 0) {
                 Image("plane")
                     .renderingMode(.template)
-                    .foregroundColor(.dGrey6)
+                    .foregroundStyle(.dGrey6)
                 Text("от \(event.price.value) ₽")
                     .font(.system(size: 14, weight: .regular))
             }
         }
         .background(.dBlack)
-        .foregroundColor(.dWhite)
+        .foregroundStyle(.dWhite)
     }
 }
 

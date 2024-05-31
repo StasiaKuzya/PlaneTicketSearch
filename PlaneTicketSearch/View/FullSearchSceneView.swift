@@ -30,7 +30,7 @@ struct FullSearchSceneView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(Color(.dBlue))
                         )
-                        .foregroundColor(.dWhite)
+                        .foregroundStyle(.dWhite)
                 }
                 .padding(.top, 3)
                 SubscriptionOnPriceView()

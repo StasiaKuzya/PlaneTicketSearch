@@ -19,15 +19,15 @@ struct UserShortFlightInfoView: View {
             } label: {
                 Image("backArrow")
                     .renderingMode(.template)
-                    .foregroundColor(.dBlue)
+                    .foregroundStyle(.dBlue)
             }
             VStack (alignment: .leading, spacing: 4) {
                 Text("\(departurePlace) - \(arrivalPlace)")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.dWhite)
+                    .foregroundStyle(.dWhite)
                 Text(dateFormat(date: Date()) + ", 1 пассажир")
                     .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(.dGrey6)
+                    .foregroundStyle(.dGrey6)
             }
             .padding([.top, .bottom], 8)
             Spacer()

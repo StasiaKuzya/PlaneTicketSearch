@@ -23,8 +23,9 @@ struct AllTicketInfoView: View {
                             ShortTicketInfoView(shortTicketInfo: shortTicketInfo)
                         }
                     }
+                    .offset(y: 9)
                 }
-                .padding(.top, 34)
+                .padding(.top, 26)
                 Spacer()
             }
             .padding([.leading, .trailing], 16)

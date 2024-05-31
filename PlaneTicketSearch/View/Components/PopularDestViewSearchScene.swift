@@ -42,7 +42,7 @@ struct PopularDestViewSearchScene: View {
                 .padding(.bottom, 16)
         }
         .padding([.leading, .trailing], 16)
-        .background(.dGrey4)
+        .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .fullScreenCover(isPresented: $showFullSearchScene) {
             FullSearchSceneView()
@@ -68,10 +68,10 @@ struct PopularDestView: View {
                 .cornerRadius(8)
             VStack (alignment: .leading, spacing: 4) {
                 Text(cityName)
-                    .foregroundColor(.dWhite)
+                    .foregroundStyle(.dWhite)
                     .font(.system(size: 16, weight: .bold))
                 Text("Популярное направление")
-                    .foregroundColor(.dGrey6)
+                    .foregroundStyle(.dGrey6)
                     .font(.system(size: 16))
                 
             }
