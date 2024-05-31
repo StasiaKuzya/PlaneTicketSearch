@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService {
+final class NetworkService {
     func request<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {

@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class MainViewModel: ObservableObject {
+
+final class MainViewModel: ObservableObject {
     @Published var musicEvents: [MusicEvent] = []
     
     private var networkService = NetworkService()

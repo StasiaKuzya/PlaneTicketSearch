@@ -10,13 +10,14 @@ import SwiftUI
 struct FullSearchSceneView: View {
     @StateObject var searchViewModel = SearchViewModel()
     @State private var showAllTicketInfoScene = false
+    @StateObject var dateViewModel = DateViewModel()
     
     var body: some View {
         ZStack {
             Color.dBlack.ignoresSafeArea()
             VStack(spacing: 15) {
                 SearchViewFullSearchScreen()
-                FiltersView()
+                FiltersView(dateViewModel: dateViewModel)
                 ShortFlightInfoTabView(ticketsOffers: searchViewModel.ticketsOffers)
                 Button {
                     showAllTicketInfoScene.toggle()
@@ -42,7 +43,7 @@ struct FullSearchSceneView: View {
         }
         .onAppear{ searchViewModel.fetchData() }
         .fullScreenCover(isPresented: $showAllTicketInfoScene) {
-            AllTicketInfoView()
+            AllTicketInfoView(dateViewModel: dateViewModel)
         }
     }
 }

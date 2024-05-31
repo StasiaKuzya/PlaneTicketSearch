@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class SearchViewModel: ObservableObject {
+
+final class SearchViewModel: ObservableObject {
     @Published var ticketsOffers: [TicketsOffer] = []
     
     private var networkService = NetworkService()

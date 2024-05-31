@@ -11,6 +11,7 @@ struct UserShortFlightInfoView: View {
     @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
     @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var dateViewModel = DateViewModel()
     
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
@@ -25,7 +26,7 @@ struct UserShortFlightInfoView: View {
                 Text("\(departurePlace) - \(arrivalPlace)")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundStyle(.dWhite)
-                Text(dateFormat(date: Date()) + ", 1 пассажир")
+                Text(dateFormat(date: dateViewModel.selectedDate) + ", 1 пассажир")
                     .font(.system(size: 14, weight: .regular))
                     .foregroundStyle(.dGrey6)
             }

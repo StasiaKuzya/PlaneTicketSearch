@@ -34,6 +34,7 @@
 		5ACEE3F22C075BB9005BAAD6 /* EmptySceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3F12C075BB9005BAAD6 /* EmptySceneView.swift */; };
 		5ACEE3F42C087CDF005BAAD6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3F32C087CDF005BAAD6 /* SearchViewModel.swift */; };
 		5ACEE3F62C088A25005BAAD6 /* AllTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3F52C088A25005BAAD6 /* AllTicketsViewModel.swift */; };
+		5ACEE3F82C0A4EBD005BAAD6 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3F72C0A4EBD005BAAD6 /* DateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		5ACEE3F12C075BB9005BAAD6 /* EmptySceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySceneView.swift; sourceTree = "<group>"; };
 		5ACEE3F32C087CDF005BAAD6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5ACEE3F52C088A25005BAAD6 /* AllTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTicketsViewModel.swift; sourceTree = "<group>"; };
+		5ACEE3F72C0A4EBD005BAAD6 /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				5ACEE3EE2C072302005BAAD6 /* MainViewModel.swift */,
 				5ACEE3F32C087CDF005BAAD6 /* SearchViewModel.swift */,
 				5ACEE3F52C088A25005BAAD6 /* AllTicketsViewModel.swift */,
+				5ACEE3F72C0A4EBD005BAAD6 /* DateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				5ACEE3B52C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift in Sources */,
 				5ACEE3DC2C062F74005BAAD6 /* UserShortFlightInfoView.swift in Sources */,
 				5ACEE3E52C071C3E005BAAD6 /* MainModel.swift in Sources */,
+				5ACEE3F82C0A4EBD005BAAD6 /* DateViewModel.swift in Sources */,
 				5ACEE3ED2C0722B4005BAAD6 /* NetworkService.swift in Sources */,
 				5ACEE3F22C075BB9005BAAD6 /* EmptySceneView.swift in Sources */,
 				5ACEE3CE2C05FB18005BAAD6 /* SearchViewSearchScreen.swift in Sources */,

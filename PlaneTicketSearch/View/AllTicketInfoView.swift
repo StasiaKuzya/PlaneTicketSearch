@@ -9,12 +9,13 @@ import SwiftUI
 
 struct AllTicketInfoView: View {
     @StateObject var allTicketsViewModel = AllTicketsViewModel()
+    @StateObject var dateViewModel = DateViewModel()
     
     var body: some View {
         ZStack {
             Color.dBlack.ignoresSafeArea()
             VStack {
-                UserShortFlightInfoView()
+                UserShortFlightInfoView(dateViewModel: dateViewModel)
                     .padding(.top, 16)
                 
                 ScrollView(.vertical, showsIndicators: false) {

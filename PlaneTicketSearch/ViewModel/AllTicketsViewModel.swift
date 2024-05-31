@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class AllTicketsViewModel: ObservableObject {
+
+final class AllTicketsViewModel: ObservableObject {
     @Published var shortTicketInfo: [ShortTicketInfo] = []
     
     private var networkService = NetworkService()
