@@ -18,7 +18,9 @@ struct SearchViewSearchScreen: View {
                     .renderingMode(.template)
                     .foregroundStyle(.dGrey7)
                     .padding(.leading, 8)
-                Text(departurePlace)
+//                Text(departurePlace)
+                TextField("Откуда - Москва", text: $departurePlace)
+                    .onChange(of: departurePlace) {}
                     .foregroundStyle(.dWhite)
                     .font(.system(size: 16, weight: .bold))
             }

@@ -27,10 +27,16 @@ struct AllTicketInfoView: View {
                     .offset(y: 9)
                 }
                 .padding(.top, 26)
-                Spacer()
+                
             }
             .padding([.leading, .trailing], 16)
             .onAppear{ allTicketsViewModel.fetchData() }
+            
+            VStack{
+                Spacer()
+                FilterPricesView()
+                    .padding(.bottom, 16)
+            }
         }
     }
 }
