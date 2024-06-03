@@ -51,7 +51,7 @@ struct MainView: View {
                         Spacer()
                     }
                 }
-                .padding([.leading, .trailing], 16)
+                .padding(.horizontal, 16)
                 .background(.dBlack)
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)

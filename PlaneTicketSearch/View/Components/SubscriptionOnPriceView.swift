@@ -20,7 +20,7 @@ struct SubscriptionOnPriceView: View {
             Toggle(isOn: $subscriptionToggle) {}
                 .tint(.dBlue)
         }
-        .padding([.top, .bottom], 13)
+        .padding(.vertical, 13)
         .padding(.leading, 16)
         .padding(.trailing, 11)
         .background(

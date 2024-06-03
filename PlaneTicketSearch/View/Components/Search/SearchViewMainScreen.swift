@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchViewMainScreen: View {
-    @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
+    @AppStorage("departurePlace") var departurePlace = ""
     @State private var showModalSearchScene = false
     
     var body: some View {
@@ -18,7 +18,10 @@ struct SearchViewMainScreen: View {
                 .foregroundStyle(.dGrey7)
                 .padding(.leading, 8)
             VStack (alignment: .leading) {
-                TextField("Откуда - Москва", text: $departurePlace)
+                TextField("",
+                          text: $departurePlace,
+                          prompt: Text("Откуда - Москва")
+                    .foregroundColor(.dGrey6))
                     .onChange(of: departurePlace) {}
                     .foregroundStyle(.dWhite)
                     .font(.system(size: 16))
@@ -28,6 +31,9 @@ struct SearchViewMainScreen: View {
                     .background(.dGrey7)
                 Button {
                     showModalSearchScene.toggle()
+                    if departurePlace.isEmpty {
+                        departurePlace = "Москва"
+                    }
                 } label: {
                     Text("Куда - Турция")
                         .foregroundStyle(.dGrey6)

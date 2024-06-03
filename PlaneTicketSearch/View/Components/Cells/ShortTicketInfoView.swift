@@ -64,8 +64,8 @@ struct ShortTicketInfoView: View {
             if ((shortTicketInfo.badge?.isEmpty) == nil) {}
             else {
                 Text(shortTicketInfo.badge ?? "Рекомендуемый")
-                    .padding([.top, .bottom], 2)
-                    .padding([.leading, .trailing], 10)
+                    .padding(.vertical, 2)
+                    .padding(.horizontal, 10)
                     .background(RoundedRectangle(cornerRadius: 50)
                         .fill(.dBlue))
                     .foregroundStyle(.dWhite)

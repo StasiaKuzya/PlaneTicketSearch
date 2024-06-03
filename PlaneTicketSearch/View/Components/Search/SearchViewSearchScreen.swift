@@ -18,8 +18,10 @@ struct SearchViewSearchScreen: View {
                     .renderingMode(.template)
                     .foregroundStyle(.dGrey7)
                     .padding(.leading, 8)
-//                Text(departurePlace)
-                TextField("Откуда - Москва", text: $departurePlace)
+                TextField("",
+                          text: $departurePlace,
+                          prompt: Text("Откуда - Москва")
+                    .foregroundColor(.dGrey6))
                     .onChange(of: departurePlace) {}
                     .foregroundStyle(.dWhite)
                     .font(.system(size: 16, weight: .bold))
@@ -60,7 +62,7 @@ struct SearchViewSearchScreen: View {
                 .padding(.bottom, 16)
             }
         }
-        .padding([.leading, .trailing], 16)
+        .padding(.horizontal, 16)
         .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dBlack, radius: 7, x: 0, y: 7)

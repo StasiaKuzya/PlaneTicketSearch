@@ -34,8 +34,8 @@ struct FiltersView: View {
                             Text("обратно")
                         }
                     }
-                    .padding([.top, .bottom], 8)
-                    .padding([.leading, .trailing], 10)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 10)
                     .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }
@@ -50,7 +50,7 @@ struct FiltersView: View {
                     showDepartDatePicker.toggle()
                 } label: {
                     Text(dateFormat(date: dateViewModel.selectedDate))
-                        .padding([.top, .bottom], 8)
+                        .padding(.vertical, 8)
                         .padding([.leading, .trailing], 10)
                         .background(.dGrey3)
                         .clipShape(RoundedRectangle(cornerRadius: 50.0))
@@ -74,7 +74,7 @@ struct FiltersView: View {
                             .frame(width: 16, height: 16)
                         Text("1, эконом")
                     }
-                    .padding([.top, .bottom], 8)
+                    .padding(.vertical, 8)
                     .padding([.leading, .trailing], 10)
                     .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
@@ -89,8 +89,8 @@ struct FiltersView: View {
                             .foregroundStyle(.dWhite)
                         Text("фильтры")
                     }
-                    .padding([.top, .bottom], 8)
-                    .padding([.leading, .trailing], 10)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 10)
                     .background(.dGrey3)
                     .clipShape(RoundedRectangle(cornerRadius: 50.0))
                 }

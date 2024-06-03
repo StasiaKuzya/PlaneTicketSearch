@@ -25,7 +25,7 @@ struct FullSearchSceneView: View {
                     Text("Посмотреть все билеты")
                         .font(.system(size: 16))
                         .italic()
-                        .padding([.top, .bottom], 13)
+                        .padding(.vertical, 13)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 8)
@@ -38,7 +38,7 @@ struct FullSearchSceneView: View {
                     .padding(.top, 9)
                 Spacer()
             }
-            .padding([.leading, .trailing], 16)
+            .padding(.horizontal, 16)
             .padding(.top, 47)
         }
         .onAppear{ searchViewModel.fetchData() }

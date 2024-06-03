@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct SearchViewFullSearchScreen: View {
-    @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
-    @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
+    @AppStorage("departurePlace") var departurePlace = ""
+    @AppStorage("arrivalPlace") var arrivalPlace = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -25,7 +25,10 @@ struct SearchViewFullSearchScreen: View {
             }
             VStack (alignment: .leading) {
                 HStack {
-                    TextField("Откуда - Москва", text: $departurePlace)
+                    TextField("",
+                              text: $departurePlace,
+                              prompt: Text("Откуда - Москва")
+                        .foregroundColor(.dGrey6))
                         .onChange(of: departurePlace) {
                             departurePlace = $0.isEmpty ? "Москва" : $0
                         }
@@ -54,7 +57,10 @@ struct SearchViewFullSearchScreen: View {
                 Divider()
                     .background(.dGrey7)
                 HStack {
-                    TextField("Куда - Турция", text: $arrivalPlace)
+                    TextField("",
+                              text: $arrivalPlace,
+                              prompt: Text("Куда - Турция")
+                        .foregroundColor(.dGrey6))
                         .onChange(of: arrivalPlace) {}
                         .foregroundStyle(.dWhite)
                         .font(.system(size: 16))

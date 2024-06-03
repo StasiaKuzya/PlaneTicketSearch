@@ -29,7 +29,7 @@ struct AllTicketInfoView: View {
                 .padding(.top, 26)
                 
             }
-            .padding([.leading, .trailing], 16)
+            .padding(.horizontal, 16)
             .onAppear{ allTicketsViewModel.fetchData() }
             
             VStack{

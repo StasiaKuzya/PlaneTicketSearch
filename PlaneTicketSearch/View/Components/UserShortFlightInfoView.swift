@@ -30,7 +30,7 @@ struct UserShortFlightInfoView: View {
                     .font(.system(size: 14, weight: .regular))
                     .foregroundStyle(.dGrey6)
             }
-            .padding([.top, .bottom], 8)
+            .padding(.vertical, 8)
             Spacer()
         }
         .frame(maxWidth: .infinity)

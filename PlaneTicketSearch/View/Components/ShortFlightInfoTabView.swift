@@ -27,13 +27,13 @@ struct ShortFlightInfoTabView: View {
             } label: {
                 Text("Показать все")
                     .font(.system(size: 16))
-                    .padding([.top, .bottom], 10)
+                    .padding(.vertical, 10)
                     .frame(maxWidth: .infinity)
             }
             .padding(.bottom, 10)
 
         }
-        .padding([.leading, .trailing], 16)
+        .padding(.horizontal, 16)
         .background(.dGrey2)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .fullScreenCover(isPresented: $showAllTicketInfoScene) {

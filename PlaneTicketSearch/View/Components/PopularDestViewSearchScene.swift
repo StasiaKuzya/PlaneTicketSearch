@@ -41,7 +41,7 @@ struct PopularDestViewSearchScene: View {
                 .background(.dGrey7)
                 .padding(.bottom, 16)
         }
-        .padding([.leading, .trailing], 16)
+        .padding(.horizontal, 16)
         .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .fullScreenCover(isPresented: $showFullSearchScene) {

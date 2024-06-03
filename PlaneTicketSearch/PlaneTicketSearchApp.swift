@@ -15,3 +15,7 @@ struct PlaneTicketSearchApp: App {
         }
     }
 }
+
+#Preview {
+    MainView()
+}
