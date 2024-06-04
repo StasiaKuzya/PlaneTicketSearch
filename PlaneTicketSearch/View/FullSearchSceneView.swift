@@ -45,6 +45,7 @@ struct FullSearchSceneView: View {
         .fullScreenCover(isPresented: $showAllTicketInfoScene) {
             AllTicketInfoView(dateViewModel: dateViewModel)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

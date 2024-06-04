@@ -10,6 +10,10 @@ import SwiftUI
 struct SearchViewMainScreen: View {
     @AppStorage("departurePlace") var departurePlace = ""
     @State private var showModalSearchScene = false
+    @Binding var showDifficultRoutScene: Bool
+    @Binding var showFullSearchScreen: Bool
+    @Binding var showWeekendScene: Bool
+    @Binding var showHotTourScene: Bool
     
     var body: some View {
         HStack(spacing: 17) {
@@ -22,11 +26,11 @@ struct SearchViewMainScreen: View {
                           text: $departurePlace,
                           prompt: Text("Откуда - Москва")
                     .foregroundColor(.dGrey6))
-                    .onChange(of: departurePlace) {}
-                    .foregroundStyle(.dWhite)
-                    .font(.system(size: 16))
-                    .padding(.top, 16)
-                    .padding(.bottom, 8)
+                .onChange(of: departurePlace) {}
+                .foregroundStyle(.dWhite)
+                .font(.system(size: 16))
+                .padding(.top, 16)
+                .padding(.bottom, 8)
                 Divider()
                     .background(.dGrey7)
                 Button {
@@ -49,13 +53,22 @@ struct SearchViewMainScreen: View {
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dGrey2, radius: 7, x: 0, y: 7)
         .sheet(isPresented: $showModalSearchScene) {
-            SearchSceneView()
+            SearchSceneView(                   
+                showDifficultRoutScene: $showDifficultRoutScene,
+                showFullSearchScreen: $showFullSearchScreen,
+                showWeekendScene: $showWeekendScene,
+                showHotTourScene: $showHotTourScene)
         }
     }
 }
 
 #Preview {
-    SearchViewMainScreen()
+    SearchViewMainScreen(
+        showDifficultRoutScene: .constant(true),
+        showFullSearchScreen: .constant(true),
+        showWeekendScene: .constant(true),
+        showHotTourScene: .constant(true)
+    )
 }
 
 extension String {

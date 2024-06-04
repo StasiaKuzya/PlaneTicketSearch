@@ -12,23 +12,8 @@ struct EmptySceneView: View {
     var body: some View {
         ZStack {
             Color.dBlack.ignoresSafeArea()
-            VStack() {
-                HStack {
-                    Button {
-                        self.presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .renderingMode(.template)
-                            .foregroundStyle(.dWhite)
-                    }
-                    .padding([.top, .leading], 16)
-                    Spacer()
-                }
-                Spacer()
-                Text("Welcome to EmptySceneView")
-                    .foregroundStyle(.dWhite)
-                Spacer()
-            }
+            Text("Welcome to EmptySceneView")
+                .foregroundStyle(.dWhite)
         }
     }
 }

@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ButtonsViewSearchScene: View {
-    @State private var showDifficultRoutScene = false
-    @State private var showWhereGoScene = false
-    @State private var showWeekendScene = false
-    @State private var showHotTourScene = false
-    @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
+    @AppStorage("arrivalPlace") var arrivalPlace = ""
+    @Binding var showDifficultRoutScene: Bool
+    @Binding var showFullSearchScreen: Bool
+    @Binding var showWeekendScene: Bool
+    @Binding var showHotTourScene: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         HStack(alignment: .top) {
             Button {
-                showDifficultRoutScene.toggle()
+                segue(to: &showDifficultRoutScene)
             } label: {
                 VStack (spacing: 8) {
                     Image("figure")
@@ -38,7 +39,7 @@ struct ButtonsViewSearchScene: View {
             Spacer()
             Button {
                 arrivalPlace = "Куда угодно"
-                showWhereGoScene.toggle()
+                segue(to: &showFullSearchScreen)
             } label: {
                 VStack (spacing: 8) {
                     Image("globe")
@@ -58,7 +59,7 @@ struct ButtonsViewSearchScene: View {
             }
             Spacer()
             Button {
-                showWeekendScene.toggle()
+                segue(to: &showWeekendScene)
             } label: {
                 VStack (spacing: 8) {
                     Image("schedule")
@@ -78,7 +79,7 @@ struct ButtonsViewSearchScene: View {
             }
             Spacer()
             Button {
-                showHotTourScene.toggle()
+                segue(to: &showHotTourScene)
             } label: {
                 VStack (spacing: 8) {
                     Image("fire")
@@ -99,22 +100,19 @@ struct ButtonsViewSearchScene: View {
         }
         .frame(maxWidth: .infinity)
         .background(.dGrey1)
-        .fullScreenCover(isPresented: $showDifficultRoutScene) {
-            EmptySceneView()
-        }
-        .fullScreenCover(isPresented: $showWhereGoScene) {
-            FullSearchSceneView()
-        }
-        .fullScreenCover(isPresented: $showWeekendScene) {
-            EmptySceneView()
-        }
-        .fullScreenCover(isPresented: $showHotTourScene) {
-            EmptySceneView()
-        }
-        
+    }
+    
+    private func segue(to scene: inout Bool) {
+        scene = true
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
 #Preview {
-    ButtonsViewSearchScene()
+    ButtonsViewSearchScene(
+        showDifficultRoutScene: .constant(true),
+        showFullSearchScreen: .constant(true),
+        showWeekendScene: .constant(true),
+        showHotTourScene: .constant(true)
+    )
 }

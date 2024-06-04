@@ -10,12 +10,14 @@ import SwiftUI
 struct PopularDestViewSearchScene: View {
     @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
     @State private var showFullSearchScene = false
+    @Binding var showFullSearchScreen: Bool
+    @Environment(\.presentationMode) var presentationMode
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Button {
-                showFullSearchScene.toggle()
-                arrivalPlace = "Стамбул"
+                destination("Стамбул")
             } label: {
                 PopularDestView(cityName: "Стамбул", cityAssetImage: "ist")
             }
@@ -23,8 +25,7 @@ struct PopularDestViewSearchScene: View {
                 .background(.dGrey7)
             
             Button {
-                showFullSearchScene.toggle()
-                arrivalPlace = "Сочи"
+                destination("Сочи")
             } label: {
                 PopularDestView(cityName: "Сочи", cityAssetImage: "sochi")
             }
@@ -32,8 +33,7 @@ struct PopularDestViewSearchScene: View {
                 .background(.dGrey7)
             
             Button {
-                showFullSearchScene.toggle()
-                arrivalPlace = "Пхукет"
+                destination("Пхукет")
             } label: {
                 PopularDestView(cityName: "Пхукет", cityAssetImage: "phuket")
             }
@@ -44,14 +44,17 @@ struct PopularDestViewSearchScene: View {
         .padding(.horizontal, 16)
         .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
-        .fullScreenCover(isPresented: $showFullSearchScene) {
-            FullSearchSceneView()
-        }
+    }
+    
+    private func destination(_ place: String) {
+        self.arrivalPlace = place
+        self.presentationMode.wrappedValue.dismiss()
+        self.showFullSearchScreen = true
     }
 }
 
 #Preview {
-    PopularDestViewSearchScene()
+    PopularDestViewSearchScene(showFullSearchScreen: .constant(true))
 }
 
 

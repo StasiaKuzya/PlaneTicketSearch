@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct SearchSceneView: View {
+    @Binding var showDifficultRoutScene: Bool
+    @Binding var showFullSearchScreen: Bool
+    @Binding var showWeekendScene: Bool
+    @Binding var showHotTourScene: Bool
+
     var body: some View {
         ZStack {
             Color.dGrey1.ignoresSafeArea()
             VStack(spacing: 26) {
-                SearchViewSearchScreen()
-                ButtonsViewSearchScene()
-                PopularDestViewSearchScene()
+                SearchViewSearchScreen(showFullSearchScreen: $showFullSearchScreen)
+                
+                ButtonsViewSearchScene(
+                    showDifficultRoutScene: $showDifficultRoutScene,
+                    showFullSearchScreen: $showFullSearchScreen,
+                    showWeekendScene: $showWeekendScene,
+                    showHotTourScene: $showHotTourScene)
+                
+                PopularDestViewSearchScene(showFullSearchScreen: $showFullSearchScreen)
                 Spacer()
             }
             .background(.dGrey1)
@@ -26,5 +37,10 @@ struct SearchSceneView: View {
 }
 
 #Preview {
-    SearchSceneView()
+    SearchSceneView(
+        showDifficultRoutScene: .constant(true),
+        showFullSearchScreen: .constant(true),
+        showWeekendScene: .constant(true),
+        showHotTourScene: .constant(true)
+    )
 }

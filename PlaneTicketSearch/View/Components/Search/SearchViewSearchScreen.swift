@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SearchViewSearchScreen: View {
     @AppStorage("departurePlace") var departurePlace = "Москва"
-    @State private var showFullSearchScene = false
+    @Binding var showFullSearchScreen: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -21,7 +22,7 @@ struct SearchViewSearchScreen: View {
                 TextField("",
                           text: $departurePlace,
                           prompt: Text("Откуда - Москва")
-                    .foregroundColor(.dGrey6))
+                            .foregroundColor(.dGrey6))
                     .onChange(of: departurePlace) {}
                     .foregroundStyle(.dWhite)
                     .font(.system(size: 16, weight: .bold))
@@ -31,7 +32,8 @@ struct SearchViewSearchScreen: View {
             Divider()
                 .background(.dGrey7)
             Button {
-                showFullSearchScene.toggle()
+                self.presentationMode.wrappedValue.dismiss()
+                showFullSearchScreen = true
             } label: {
                 
                 HStack(spacing: 8) {
@@ -66,12 +68,9 @@ struct SearchViewSearchScreen: View {
         .background(.dGrey3)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dBlack, radius: 7, x: 0, y: 7)
-        .fullScreenCover(isPresented: $showFullSearchScene) {
-            FullSearchSceneView()
-        }
     }
 }
 
 #Preview {
-    SearchViewSearchScreen()
+    SearchViewSearchScreen(showFullSearchScreen: .constant(true))
 }

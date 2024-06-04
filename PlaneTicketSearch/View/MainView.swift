@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
+    @State private var showDifficultRoutScene = false
+    @State private var showFullSearchScreen = false
+    @State private var showWeekendScene = false
+    @State private var showHotTourScene = false
     
     init() {
         UITabBar.appearance().unselectedItemTintColor = .dGrey6
@@ -27,8 +31,12 @@ struct MainView: View {
                             .multilineTextAlignment(.center)
                             .lineLimit(2)
                             .padding(.top, 26)
-                        
-                        SearchViewMainScreen()
+                            SearchViewMainScreen(
+                                showDifficultRoutScene: $showDifficultRoutScene,
+                                showFullSearchScreen: $showFullSearchScreen,
+                                showWeekendScene: $showWeekendScene,
+                                showHotTourScene: $showHotTourScene
+                            )
                             .padding(16)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
@@ -50,6 +58,11 @@ struct MainView: View {
                         
                         Spacer()
                     }
+
+                    NavigationLink(destination: FullSearchSceneView(), isActive: $showFullSearchScreen) { EmptyView() }
+                    NavigationLink(destination: EmptySceneView(), isActive: $showDifficultRoutScene) { EmptyView() }
+                    NavigationLink(destination: EmptySceneView(), isActive: $showWeekendScene) { EmptyView() }
+                    NavigationLink(destination: EmptySceneView(), isActive: $showHotTourScene) { EmptyView() }
                 }
                 .padding(.horizontal, 16)
                 .background(.dBlack)
