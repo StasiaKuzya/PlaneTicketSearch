@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AllTicketInfoView: View {
-    @StateObject var allTicketsViewModel = AllTicketsViewModel()
-    @StateObject var dateViewModel = DateViewModel()
+    @StateObject var allTicketsViewModel: AllTicketsViewModel = .init()
+    @StateObject var dateViewModel: DateViewModel = .init()
     
     var body: some View {
         ZStack {

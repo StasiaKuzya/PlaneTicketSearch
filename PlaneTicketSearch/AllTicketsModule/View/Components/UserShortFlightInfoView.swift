@@ -11,7 +11,7 @@ struct UserShortFlightInfoView: View {
     @AppStorage("departurePlace") var departurePlace = "Откуда - Москва"
     @AppStorage("arrivalPlace") var arrivalPlace = "Куда - Турция"
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var dateViewModel = DateViewModel()
+    @ObservedObject var dateViewModel: DateViewModel = .init()
     
     var body: some View {
         HStack(alignment: .center, spacing: 8) {

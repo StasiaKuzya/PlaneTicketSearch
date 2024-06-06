@@ -11,11 +11,11 @@ import SwiftUI
 struct PlaneTicketSearchApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            ContentView()
         }
     }
 }
 
 #Preview {
-    MainView()
+    ContentView()
 }

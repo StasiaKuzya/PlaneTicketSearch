@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct FullSearchSceneView: View {
-    @StateObject var searchViewModel = SearchViewModel()
+    @StateObject var searchViewModel: SearchViewModel = .init()
+    @StateObject var dateViewModel: DateViewModel = .init()
     @State private var showAllTicketInfoScene = false
-    @StateObject var dateViewModel = DateViewModel()
     
     var body: some View {
         ZStack {

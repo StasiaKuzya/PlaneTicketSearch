@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7A6FBD2C11B1EB009E641A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A6FBC2C11B1EB009E641A /* TabBarView.swift */; };
+		5A7A6FBF2C11B5F2009E641A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A6FBE2C11B5F2009E641A /* ContentView.swift */; };
 		5ACEE3B52C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3B42C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift */; };
 		5ACEE3B72C05CA9A005BAAD6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACEE3B62C05CA9A005BAAD6 /* MainView.swift */; };
 		5ACEE3B92C05CA9D005BAAD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ACEE3B82C05CA9D005BAAD6 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A7A6FBC2C11B1EB009E641A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		5A7A6FBE2C11B5F2009E641A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5ACEE3B12C05CA9A005BAAD6 /* PlaneTicketSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneTicketSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACEE3B42C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneTicketSearchApp.swift; sourceTree = "<group>"; };
 		5ACEE3B62C05CA9A005BAAD6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				5ACEE3B42C05CA9A005BAAD6 /* PlaneTicketSearchApp.swift */,
+				5A7A6FBE2C11B5F2009E641A /* ContentView.swift */,
+				5A7A6FBC2C11B1EB009E641A /* TabBarView.swift */,
 				5A7A6FA92C11AE01009E641A /* MainModule */,
 				5A7A6FAE2C11AE9E009E641A /* SearchModule */,
 				5A7A6FB72C11B067009E641A /* AllTicketsModule */,
@@ -382,6 +388,7 @@
 			files = (
 				5ACEE3DA2C062D29005BAAD6 /* AllTicketInfoView.swift in Sources */,
 				5ACEE3B72C05CA9A005BAAD6 /* MainView.swift in Sources */,
+				5A7A6FBD2C11B1EB009E641A /* TabBarView.swift in Sources */,
 				5ACEE3D82C0626C4005BAAD6 /* SubscriptionOnPriceView.swift in Sources */,
 				5ACEE3E72C071C57005BAAD6 /* SearchModel.swift in Sources */,
 				5ACEE3C62C05DCFB005BAAD6 /* MusicEventInfoView.swift in Sources */,
@@ -405,6 +412,7 @@
 				5ACEE3D62C061EA5005BAAD6 /* ShortFlightInfoTabView.swift in Sources */,
 				5ACEE3D22C060E0F005BAAD6 /* SearchViewFullSearchScreen.swift in Sources */,
 				5ACEE3E92C071C6D005BAAD6 /* AllTicketsModel.swift in Sources */,
+				5A7A6FBF2C11B5F2009E641A /* ContentView.swift in Sources */,
 				5ACEE3CA2C05E964005BAAD6 /* ButtonsViewSearchScene.swift in Sources */,
 				5ACEE3EF2C072302005BAAD6 /* MainViewModel.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ struct FiltersView: View {
     @State private var returnDate = Date()
     @State private var showDepartDatePicker = false
     @State private var showReturnDatePicker = false
-    @ObservedObject var dateViewModel = DateViewModel()
+    @ObservedObject var dateViewModel: DateViewModel = .init()
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
