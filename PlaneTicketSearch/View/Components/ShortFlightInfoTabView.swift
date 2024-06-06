@@ -25,20 +25,19 @@ struct ShortFlightInfoTabView: View {
             Button {
                 showAllTicketInfoScene.toggle()
             } label: {
-                Text("Показать все")
-                    .font(.system(size: 16))
-                    .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
+                NavigationLink(destination: AllTicketInfoView(), isActive: $showAllTicketInfoScene) {
+                    Text("Показать все")
+                        .font(.system(size: 16))
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity)
+                        .foregroundStyle(.dBlue)
+                }
             }
             .padding(.bottom, 10)
-
         }
         .padding(.horizontal, 16)
         .background(.dGrey2)
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
-        .fullScreenCover(isPresented: $showAllTicketInfoScene) {
-            AllTicketInfoView()
-        }
     }
     
     private func getColorForIndex(index: Int) -> Color {

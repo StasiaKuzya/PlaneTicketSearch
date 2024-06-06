@@ -22,16 +22,18 @@ struct FullSearchSceneView: View {
                 Button {
                     showAllTicketInfoScene.toggle()
                 } label: {
-                    Text("Посмотреть все билеты")
-                        .font(.system(size: 16))
-                        .italic()
-                        .padding(.vertical, 13)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(.dBlue))
-                        )
-                        .foregroundStyle(.dWhite)
+                    NavigationLink(destination: AllTicketInfoView(), isActive: $showAllTicketInfoScene) {
+                        Text("Посмотреть все билеты")
+                            .font(.system(size: 16))
+                            .italic()
+                            .padding(.vertical, 13)
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color(.dBlue))
+                            )
+                            .foregroundStyle(.dWhite)
+                    }
                 }
                 .padding(.top, 3)
                 SubscriptionOnPriceView()
@@ -42,9 +44,6 @@ struct FullSearchSceneView: View {
             .padding(.top, 47)
         }
         .onAppear{ searchViewModel.fetchData() }
-        .fullScreenCover(isPresented: $showAllTicketInfoScene) {
-            AllTicketInfoView(dateViewModel: dateViewModel)
-        }
         .navigationBarBackButtonHidden()
     }
 }

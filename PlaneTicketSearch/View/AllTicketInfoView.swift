@@ -27,7 +27,7 @@ struct AllTicketInfoView: View {
                     .offset(y: 9)
                 }
                 .padding(.top, 26)
-                
+                .padding(.bottom, 1)
             }
             .padding(.horizontal, 16)
             .onAppear{ allTicketsViewModel.fetchData() }
@@ -37,6 +37,7 @@ struct AllTicketInfoView: View {
                 FilterPricesView()
                     .padding(.bottom, 16)
             }
+            .navigationBarBackButtonHidden()
         }
     }
 }
