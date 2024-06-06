@@ -22,7 +22,7 @@ struct FullSearchSceneView: View {
                 Button {
                     showAllTicketInfoScene.toggle()
                 } label: {
-                    NavigationLink(destination: AllTicketInfoView(), isActive: $showAllTicketInfoScene) {
+                    NavigationLink(destination: AllTicketInfoView(dateViewModel: dateViewModel), isActive: $showAllTicketInfoScene) {
                         Text("Посмотреть все билеты")
                             .font(.system(size: 16))
                             .italic()

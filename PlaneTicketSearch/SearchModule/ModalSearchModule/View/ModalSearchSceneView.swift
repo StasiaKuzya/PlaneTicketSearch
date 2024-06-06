@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchSceneView: View {
+struct ModalSearchSceneView: View {
     @Binding var showDifficultRoutScene: Bool
     @Binding var showFullSearchScreen: Bool
     @Binding var showWeekendScene: Bool
@@ -37,7 +37,7 @@ struct SearchSceneView: View {
 }
 
 #Preview {
-    SearchSceneView(
+    ModalSearchSceneView(
         showDifficultRoutScene: .constant(true),
         showFullSearchScreen: .constant(true),
         showWeekendScene: .constant(true),

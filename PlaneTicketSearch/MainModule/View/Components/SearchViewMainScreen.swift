@@ -53,7 +53,7 @@ struct SearchViewMainScreen: View {
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
         .shadow(color: .dGrey2, radius: 7, x: 0, y: 7)
         .sheet(isPresented: $showModalSearchScene) {
-            SearchSceneView(                   
+            ModalSearchSceneView(                   
                 showDifficultRoutScene: $showDifficultRoutScene,
                 showFullSearchScreen: $showFullSearchScreen,
                 showWeekendScene: $showWeekendScene,
